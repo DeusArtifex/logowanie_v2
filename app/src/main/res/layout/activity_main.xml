@@ -38,14 +38,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="#84B082"
-            android:text="Login" />
+            android:text="loguj" />
         <Button
             android:id="@+id/registerBtn"
             android:layout_width="70pt"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="#1084B082"
-            android:text="Register" />
+            android:text="zarejestruj" />
 
     </LinearLayout>
 

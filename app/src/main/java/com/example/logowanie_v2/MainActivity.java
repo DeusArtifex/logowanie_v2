@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         } else {
-            //Intent intent = new Intent(getApplicationContext(), Registration.class);
+            Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
             Toast.makeText(this, "register", Toast.LENGTH_SHORT).show();
-            //startActivity(intent);
+            startActivity(intent);
         }
     }
 
