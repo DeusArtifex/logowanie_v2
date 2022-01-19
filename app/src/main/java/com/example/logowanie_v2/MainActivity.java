@@ -1,5 +1,7 @@
 package com.example.logowanie_v2;
 
+import static android.util.Patterns.EMAIL_ADDRESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -53,14 +55,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         } else {
-            Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+            Intent intent = new Intent(this, RegisterActivity.class);
             Toast.makeText(this, "register", Toast.LENGTH_SHORT).show();
-            startActivity(intent);
+            startActivityForResult(intent, 1);
         }
     }
 
     public boolean checkMail(String mail){
-        Pattern pattern = Pattern.compile("^(.*)@([a-z]{3,})\\.([a-z]{2,}$)");
+        Pattern pattern = EMAIL_ADDRESS;
         Matcher matcher = pattern.matcher(mail);
         if(matcher.find()){
             return true;

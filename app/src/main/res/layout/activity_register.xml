@@ -26,12 +26,14 @@
             android:id="@+id/formMail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:text="email"
             android:gravity="center"/>
         <EditText
             android:id="@+id/formPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:text="hasło"
             android:gravity="center"/>
         <Button

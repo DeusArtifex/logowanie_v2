@@ -1,7 +1,11 @@
 package com.example.logowanie_v2;
 
+import static android.util.Patterns.EMAIL_ADDRESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +37,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String mail = formEmail.getText().toString();
         String pass = formPass.getText().toString();
         if(checkMail(mail) && checkPass(pass)){
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra("mail", mail);
+            returnIntent.putExtra("pass", pass);
             Toast.makeText(this, "Zarejestrowano", Toast.LENGTH_SHORT).show();
+            setResult(Activity.RESULT_OK,returnIntent);
+            finish();
+
         }else{
             Toast.makeText(this, "Błąd", Toast.LENGTH_SHORT).show();
         }
@@ -41,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public boolean checkMail(String mail){
-        Pattern pattern = Pattern.compile("^(.*)@([a-z]{3,})\\.([a-z]{2,}$)");
+        Pattern pattern = EMAIL_ADDRESS;
         Matcher matcher = pattern.matcher(mail);
         if(matcher.find()){
             return true;
