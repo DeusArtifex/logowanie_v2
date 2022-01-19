@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#363732"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:title="Logowanie"
+    app:titleTextColor="#07A0C3"
+    app:titleMarginStart="40dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right">
+
+        <Button
+            android:id="@+id/loginTbr"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Login"
+            android:textColor="#D4E09B"/>
+        <Button
+            android:id="@+id/registerTbr"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:layout_weight="2"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Register"
+            android:textColor="#D4E09B"/>
+
+    </LinearLayout>
+
+
+</androidx.appcompat.widget.Toolbar>
