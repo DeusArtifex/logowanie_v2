@@ -16,7 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button accept;
+    private Button accept, back;
     private EditText formEmail, formPass;
 
     @Override
@@ -30,22 +30,30 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         //Nasłuchuj przycisków
         accept = findViewById(R.id.accept);
         accept.setOnClickListener(this);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        String mail = formEmail.getText().toString();
-        String pass = formPass.getText().toString();
-        if(checkMail(mail) && checkPass(pass)){
-            Intent returnIntent = new Intent();
-            returnIntent.putExtra("mail", mail);
-            returnIntent.putExtra("pass", pass);
-            Toast.makeText(this, "Zarejestrowano", Toast.LENGTH_SHORT).show();
-            setResult(Activity.RESULT_OK,returnIntent);
-            finish();
+        int resID = v.getId();
+        if(resID == R.id.accept){
+            String mail = formEmail.getText().toString();
+            String pass = formPass.getText().toString();
+            if(checkMail(mail) && checkPass(pass)){
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("mail", mail);
+                returnIntent.putExtra("pass", pass);
+                Toast.makeText(this, "Zarejestrowano", Toast.LENGTH_SHORT).show();
+                setResult(Activity.RESULT_OK,returnIntent);
+                finish();
 
-        }else{
-            Toast.makeText(this, "Błąd", Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(this, "Błąd", Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            setResult(Activity.RESULT_CANCELED);
+            finish();
         }
 
     }

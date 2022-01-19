@@ -27,14 +27,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:text="email"
+            android:hint="wprowadź email"
             android:gravity="center"/>
         <EditText
             android:id="@+id/formPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:text="hasło"
+            android:hint="wprowadź hasło"
             android:gravity="center"/>
         <Button
             android:id="@+id/accept"
@@ -43,6 +43,13 @@
             android:layout_gravity="center"
             android:backgroundTint="#84B082"
             android:text="akceptuj"/>
+        <Button
+            android:id="@+id/back"
+            android:layout_width="70pt"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#1084B082"
+            android:text="cofnij" />
 
     </LinearLayout>
 
