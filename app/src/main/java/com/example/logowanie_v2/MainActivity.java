@@ -5,6 +5,7 @@ import static android.util.Patterns.EMAIL_ADDRESS;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ import java.util.regex.Pattern;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button login, register, loginT, registerT;
     private EditText email, haslo;
+    private static int LAUNCH_ACTIVITY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             Intent intent = new Intent(this, RegisterActivity.class);
             Toast.makeText(this, "register", Toast.LENGTH_SHORT).show();
-            startActivityForResult(intent, 1);
+            startActivityForResult(intent, LAUNCH_ACTIVITY);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == LAUNCH_ACTIVITY) {
+            if (resultCode == Activity.RESULT_OK) {
+                email.setText(data.getStringExtra("mail"));
+            }
         }
     }
 
